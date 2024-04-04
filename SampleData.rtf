@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 INSERT INTO Customer (customerID, customerName, customerShippingAddress, customerBillingAddress, customerDOB, customerGender)\
+VALUES\
+('CUST001', 'John Doe', '1234 Elm St, Springfield, IL', '5678 Oak St, Springfield, IL', '1985-04-12', 'Male'),\
+('CUST002', 'Jane Smith', '4321 Maple St, Metropolis, IL', '8765 Pine St, Metropolis, IL', '1990-08-25', 'Female');\
+\
+INSERT INTO UserPassword (userID, userAccountName, userEncryptedPassword, passwordExpiryTime, userAccountExpiryDate)\
+VALUES\
+('CUST001', 'johndoe85', 'encrypted_password', 30, '2024-12-31'),\
+('CUST002', 'janesmith90', 'another_encrypted_password', 30, '2024-12-31');\
+\
+INSERT INTO AboutUs (companyAddress, companyShippingPolicy, companyReturnPolicy, companyContactInfo, companyBusinessDescription)\
+VALUES\
+('1234 Columbia Lane, Columbia, MO', 'Free shipping on orders over $50', '30-day returns with no questions asked', 'support@iclothing.com', 'iClothing gives you the biggest deals for fashion trends.');\
+\
+INSERT INTO Administrator (adminID, adminName, adminEmail, dateHired)\
+VALUES\
+('ADMIN001', 'Admin Admin', 'admin@iclothing.com', '2019-05-01');\
+\
+INSERT INTO UserQuery (queryNo, customerID, queryDate, queryDescription)\
+VALUES\
+('QUERY001', 'CUST001', '2024-03-15', 'Inquiry about the status of return for order ORD1234');\
+\
+INSERT INTO Department (departmentID, departmentName, departmentDescription)\
+VALUES\
+('DEPT001', 'Men', 'Clothing and accessories for men'),\
+('DEPT002', 'Women', 'Clothing and Accesories for women');\
+\
+INSERT INTO Category (categoryID, categoryName, categoryDescription, departmentID)\
+VALUES\
+('CAT001', 'Shirts', 'A wide range of shirts for all occasions', 'DEPT001'),\
+('CAT002', 'Dresses', 'From casual to formal, all your dress needs', 'DEPT002');\
+\
+INSERT INTO Brand (brandID, brandName, brandDescription)\
+VALUES\
+('BRAND001', 'FashionCo', 'The trendy choice for an individual'),\
+('BRAND002', 'ClassicWear', 'Timeless wear for every selection');\
+\
+INSERT INTO Product (productID, productName, productDescription, productPrice, productQty, categoryID, brandID)\
+VALUES\
+('PROD001', 'Casual Shirt', 'A comfortable and stylish casual shirt', 29.99, 100, 'CAT001', 'BRAND001'),\
+('PROD002', 'Evening Dress', 'Nice evening dress for special occasions', 99.99, 50, 'CAT002', 'BRAND002');\
+\
+INSERT INTO UserComments (commentNo, customerID, commentDate, commentDescription)\
+VALUES\
+('COMM001', 'CUST001', '2024-03-16', 'Enjoyed the fast delivery and quality of product!');\
+\
+INSERT INTO ShoppingCart (cartID, customerID)\
+VALUES\
+('CART001', 'CUST001');\
+\
+INSERT INTO ShoppingCartItem (cartID, productID, productPrice, productQty)\
+VALUES\
+('CART001', 'PROD001', 29.99, 2);\
+\
+INSERT INTO OrderStatus (statusID, cartID, status, statusDate)\
+VALUES\
+('STATUS001', 'CART001', 'Shipped', '2024-03-17');\
+\
+INSERT INTO Email (emailNo, emailDate, emailSubject, emailBody, customerID)\
+VALUES\
+('EMAIL001', '2024-03-15', 'Your iClothing Order Has Shipped!', 'John Doe, your order has been shipped. Here is your tracking number: TRACK1234.', 'CUST001');\
+\
+INSERT INTO ItemDelivery (stickerID, orderID, stickerDate)\
+VALUES\
+('STICK001', 'STATUS001', '2024-03-18');}
