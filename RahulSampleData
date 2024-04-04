@@ -1,0 +1,56 @@
+INSERT INTO Customer (customerID, customerName, customerShippingAddress, customerBillingAddress, customerDOB, customerGender)
+VALUES ('CUST004', 'John James', '123 Main St, St. Louis, MO', '123 Main St, St. Louis, MO', '1980-01-01', 'Male'),
+       ('CUST005', 'Margaret Taylor', '789 Oak St, St. Louis, MO', '789 Oak St, St. Louis, MO', '1990-02-02', 'Female');
+
+INSERT INTO UserPassword (userID, userAccountName, userEncryptedPassword, passwordExpiryTime, userAccountExpiryDate)
+VALUES ('CUST004', 'jjames', 'encryptedPassword4', 30, '2025-01-01'),
+       ('CUST005', 'mtaylor', 'encryptedPassword5', 60, '2025-02-02');
+
+INSERT INTO Administrator (adminID, adminName, adminEmail, dateHired)
+VALUES ('ADMIN004', 'Jim Brown', 'jbrown@iclothing.com', '2022-01-01'),
+       ('ADMIN005', 'Jane Green', 'jgreen@iclothing.com', '2022-02-02');
+
+INSERT INTO UserQuery (queryNo, customerID, queryDate, queryDescription)
+VALUES ('QUERY002', 'CUST004', '2024-01-02', 'How do I track my order?'),
+       ('QUERY003', 'CUST005', '2024-02-03', 'What is your return policy?');
+
+INSERT INTO Category (categoryID, categoryName, categoryDescription, departmentID)
+VALUES ('CAT003', 'Pants', 'Men''s dress pants', 'DEPT001'),
+       ('CAT004', 'Tops', 'Women''s tops', 'DEPT002');
+
+INSERT INTO Brand (brandID, brandName, brandDescription)
+VALUES ('BRAND003', 'Calvin Klein', 'High-end designer brand'),
+       ('BRAND004', 'Levi''s', 'Denim jeans and clothing'),
+       ('BRAND005', 'Ralph Lauren', 'Classic American style');
+
+INSERT INTO Product (productID, productName, productDescription, productPrice, productQty, categoryID, brandID)
+VALUES ('PROD003', 'Blue Dress Shirt', '100% cotton blue dress shirt', 99.99, 50, 'CAT001', 'BRAND003'),
+       ('PROD004', 'Black Dress Pants', 'Men''s dress pants perfect for a nice night out', 120.00, 75, 'CAT001', 'BRAND004'),
+       ('PROD005', 'Red Dress', 'Women''s cocktail dress that is sure to impress everyone', 150.00, 30, 'CAT002', 'BRAND005'),
+       ('PROD006', 'White Blouse', 'Women''s blouse made of the highest quality', 75.00, 100, 'CAT002', 'BRAND003');
+
+INSERT INTO UserComments (commentNo, customerID, commentDate, commentDescription)
+VALUES ('COMM002', 'CUST004', '2024-04-04', 'Love the fit of the shirt!'),
+       ('COMM003', 'CUST005', '2024-05-05', 'Dress is beautiful but a bit small');
+
+INSERT INTO ShoppingCart (cartID, customerID)
+VALUES ('CART002', 'CUST004'),
+       ('CART003', 'CUST005');
+
+INSERT INTO ShoppingCartItem (cartID, productID, productPrice, productQty)
+VALUES ('CART002', 'PROD003', 99.99, 1),
+       ('CART002', 'PROD004', 120.00, 2),
+       ('CART003', 'PROD005', 150.00, 1),
+       ('CART003', 'PROD006', 75.00, 2);
+
+INSERT INTO OrderStatus (statusID, cartID, status, statusDate)
+VALUES ('STATUS002', 'CART002', 'Shipped', '2024-01-03'),
+       ('STATUS003', 'CART003', 'Shipped', '2024-02-04');
+
+INSERT INTO Email (emailNo, emailDate, emailSubject, emailBody, customerID)
+VALUES ('EMAIL002', '2024-01-02', ''Your iClothing Order Has Shipped!', 'John James, your order has been shipped. Here is your tracking number: TRACK5678.', 'CUST004'),
+       ('EMAIL003', '2024-02-03', ''Your iClothing Order Has Shipped!', 'Margaret Taylor, your order has been shipped. Here is your tracking number: TRACK9012.', 'CUST005');
+
+INSERT INTO ItemDelivery (stickerID, orderID, stickerDate)
+VALUES ('STICK002', 'STATUS002', '2024-01-04'),
+       ('STICK003', 'STATUS003', '2024-02-05');
